@@ -8,7 +8,7 @@ app.get("/", (req, res) => {
   res.send(`
     <html>
       <head>
-        <title>DevOps Node.js Docker Project</title>
+        <title>DevOps CI/CD Pipeline Project</title>
         <style>
           body {
             font-family: Arial, sans-serif;
@@ -26,7 +26,7 @@ app.get("/", (req, res) => {
             background: #1e293b;
             padding: 40px;
             border-radius: 16px;
-            max-width: 750px;
+            max-width: 800px;
             box-shadow: 0 20px 50px rgba(0,0,0,0.35);
           }
 
@@ -57,16 +57,16 @@ app.get("/", (req, res) => {
       </head>
       <body>
         <div class="card">
-          <h1>DevOps Node.js Docker Project</h1>
-          <h2>Project 1: Containerized Node.js Application</h2>
+          <h1>DevOps CI/CD Pipeline Project</h1>
+          <h2>Project 2: GitHub Actions + Docker Hub</h2>
           <p>
-            This application is built with Node.js and Express, then packaged
-            into a Docker container for consistent deployment.
+            This application is automatically tested, built into a Docker image,
+            and pushed to Docker Hub using a GitHub Actions CI/CD pipeline.
           </p>
           <p>
-            Tools used: Node.js, Express, Docker, Docker Compose, Git, and GitHub.
+            Tools used: Node.js, Express, Docker, GitHub Actions, Docker Hub, Git, and GitHub.
           </p>
-          <div class="badge">Application Running Successfully</div>
+          <div class="badge">CI/CD Pipeline Deployment Successful</div>
         </div>
       </body>
     </html>
@@ -76,7 +76,8 @@ app.get("/", (req, res) => {
 app.get("/health", (req, res) => {
   res.status(200).json({
     status: "healthy",
-    service: "nodejs-docker-app",
+    service: "nodejs-cicd-app",
+    project: "DevOps Project 02 - CI/CD Pipeline",
     uptime: process.uptime(),
     timestamp: new Date().toISOString()
   });
@@ -84,14 +85,16 @@ app.get("/health", (req, res) => {
 
 app.get("/api/info", (req, res) => {
   res.status(200).json({
-    project: "DevOps Project 01 - Node.js Docker",
+    project: "DevOps Project 02 - CI/CD Pipeline by Toyin",
     runtime: "Node.js",
     framework: "Express",
+    ci_cd: "GitHub Actions",
+    registry: "Docker Hub",
     containerized: true,
     environment: process.env.NODE_ENV || "development"
   });
 });
 
 app.listen(PORT, () => {
-  console.log(`Server is running on port ${PORT}`);
+  console.log(`CI/CD app is running on port ${PORT}`);
 });
